@@ -1,17 +1,88 @@
-.taskWrapper {
-    background-color: #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 14px 1px rgba(0, 0, 0, .2);
-    padding: 20px;
-    margin-bottom: 20px;
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
 }
 
-.taskHeading {
-    font-size: 20px;
-    margin-bottom: 15px;
+body{
+    background-color: grey;
 }
 
-.taskDescription {
-    font-size: 16px;
 
+.phone-book{
+    max-width: 370px;
+    height: 400px;
+    width: 100%;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: 3px solid #c5c0c0;
+    overflow: scroll;
+}
+
+
+.navbar{
+    width: 100%;
+}
+
+.navbar-add-contact{
+    width: 20px;
+    transform: rotate(45deg);
+}
+
+.navbar-toggler-cast{
+    border: none;
+}
+
+.navbar-toggler-cast:focus{
+    box-shadow: none;
+}
+
+.offcanvas-backdrop.show{
+    height: 100%;
+}
+
+.taskHeading{
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.taskNumber,
+.taskJob{
+    font-weight: 100;
+}
+
+.btn{
+    height: fit-content;
+    border: none;
+}
+
+.btn > img{
+    max-width: 25px;
+}
+
+.btn > img:hover{
+    opacity: .7;
+}
+
+.taskWrapper{
+    display: block;
+}
+
+.hide{
+    display: none !important;
+}
+
+#searchInp{
+    width: 75%;
+}
+
+.no-contacts{
+    color: silver;
+    text-align: center;
+    opacity: .5;
+    opacity: .5;
 }
