@@ -1,13 +1,8 @@
-'use strict';
 
-void function(){
+import {View} from "./view.js"
+import {Controller} from "./controller.js"
+import {Model} from "./model.js"
 
-    const payload = {};
+const app = new Controller(new View(), new Model());
 
-    const app = controller(
-        view(),
-        model(),
-        payload
-    );
-
-}()
+app.init();
