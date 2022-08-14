@@ -10,9 +10,69 @@
 
 <main>
 
-        <div class="container">
+
+
+
+    <div class="modal modal-custom fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-custom align-items-center d-flex">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom border-0 bg-black">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body modal-body-custom bg-black d-flex">
+                    <div>
+                        <div class="photoContact_info d-flex justify-content-center mb-3"></div>
+                        <div class="label_info">Name: <span class="name_info"></span></div>
+                        <div class="label_info">Phone number: <span class="phone_info"></span></div>
+                        <div class="label_info">Job title: <span class="job_info"></span></div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mb-5">
+                        <a href="" class="callContact_info">
+                            <img src="./images/btn-call.png" alt="">
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-custom fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-custom align-items-center d-flex">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom border-0 bg-black">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body modal-body-custom bg-black d-flex">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label class="form-label ">Name</label>
+                            <input type="text" required name="name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Number phone</label>
+                            <input type="number" required name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Job title</label>
+                            <input type="text" required name="job" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary"  data-bs-dismiss="offcanvas" >update</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
             <div class="row">
-                <div class="col-12 phone-book">
+                <div class="col-12 phone-book rounded-4">
                     <nav class="navbar navbar-dark mb-3">
                         <div class="container-fluid justify-content-end p-0 ">
                             <input class='form-control' disabled type="search" id="searchInp" placeholder="Search" aria-label="Search">
@@ -24,14 +84,14 @@
                                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body">
-                                    <form id="todoForm">
+                                    <form id="pBookForm">
                                         <div class="mb-3">
                                             <label class="form-label ">Name</label>
                                             <input type="text" required name="name" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label  class="form-label">Number phone</label>
-                                            <input type="tel" required name="phone" class="form-control">
+                                            <input type="number" required name="phone" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label  class="form-label">Job title</label>
@@ -47,8 +107,7 @@
                         Нет контактов
                     </p>
 
-                    <div class="row" id="todoItems"></div>
-
+                    <div class="row" id="bookItems"></div>
 
                 </div>
             </div>
@@ -58,6 +117,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="./js2/app/app.js" type="module"></script>
+
 </body>
 
 </html>

@@ -8,34 +8,37 @@ export class Controller{
     }
 
     init(){
-        const formSelector = '#todoForm';
-        const todosContainerSelector = '#todoItems';
+        const formSelector = '#pBookForm';
+        const bookContainerSelector = '#bookItems';
         this.form = document.querySelector(formSelector);
-        const todosContainer = document.querySelector(todosContainerSelector);
+        const bookContainer = document.querySelector(bookContainerSelector);
         const searchInp = document.querySelector('#searchInp');
 
         this.model.init(formSelector);
-        this.view.init(this.form, todosContainer);
+        this.view.init(this.form, bookContainer);
 
         this.form.addEventListener('submit', this.submitHandler)
-        window.addEventListener('DOMContentLoaded', this.loadHandler);
-        todosContainer.addEventListener('click', this.deleteItemHandler);
 
+        window.addEventListener('DOMContentLoaded', this.loadHandler);
+
+        bookContainer.addEventListener('click', this.deleteItemHandler);
+
+        bookContainer.addEventListener('click', this.seeContactInfo);
+
+        bookContainer.addEventListener('click', this.editContact);
 
         searchInp.addEventListener('input', (event) => {
             const value = event.target.value.trim();
-            const bookItems = document.querySelectorAll('.taskWrapper');
+            const bookItems = document.querySelectorAll('.contactWrapper');
             const searchRegExp = new RegExp(value, 'gi');
 
             this.view.searchItem(value,bookItems,searchRegExp);
-
         })
     }
 
 
     fetchFormData(inputs){
         let data = inputs;
-
 
         if(inputs instanceof NodeList){
             data = Array.from(inputs);
@@ -56,28 +59,51 @@ export class Controller{
 
         if(!data.success) throw new Error('Все очень плохо');
 
-        this.view.renderTodoItem(data.saveData);
+        this.view.renderContactItem(data.saveData);
         this.model.openSearch();
         this.model.numOfContact();
         this.view.clearForm();
     }
 
     loadHandler = () => {
-        const todoItem = this.model.getData();
-        if(!todoItem) return;
+        const bookItem = this.model.getData();
+        if(!bookItem) return;
 
-        todoItem.forEach(item => this.view.renderTodoItem(item));
+        bookItem.forEach(item => this.view.renderContactItem(item));
 
     }
 
     deleteItemHandler = event => {
+        // console.log(event.target)
         event.stopPropagation();
         if(!event.target.classList.contains('btn-delete')) return;
 
-        const todoId = +event.target.closest('[data-todo-id]').getAttribute('data-todo-id');
+        const bookContactId = +event.target.closest('[data-todo-id]').getAttribute('data-todo-id');
 
-        this.model.deleteItem(todoId);
-        this.view.deleteItem(todoId);
+        this.model.deleteItem(bookContactId);
+        this.view.deleteItem(bookContactId);
+
+    }
+
+    seeContactInfo = event =>{
+        event.stopPropagation();
+
+        if(!event.target.classList.contains('btn-info')) return;
+
+        const bookContactInfo = +event.target.closest('[data-todo-id]').getAttribute('data-todo-id');
+
+        this.model.seeContact(bookContactInfo);
+        this.view.seeContact(bookContactInfo);
+    }
+
+
+
+    editContact = event => {
+        event.stopPropagation();
+
+        if(!event.target.classList.contains('btn-edit')) return;
+
+        const bookContactInfo = +event.target.closest('[data-todo-id]').getAttribute('data-todo-id');
 
     }
 

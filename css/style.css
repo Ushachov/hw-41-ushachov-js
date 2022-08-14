@@ -8,19 +8,20 @@ body{
     background-color: grey;
 }
 
-
 .phone-book{
     max-width: 370px;
-    height: 400px;
+    height: 600px;
     width: 100%;
     background: black;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     border: 3px solid #c5c0c0;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
 }
 
 
@@ -45,32 +46,45 @@ body{
     height: 100%;
 }
 
-.taskHeading{
+.contactHeading{
     font-size: 21px;
     font-weight: 600;
 }
 
-.taskNumber,
-.taskJob{
+.contactNumber,
+.contactJob{
     font-weight: 100;
 }
 
-.btn{
+.btn-int{
     height: fit-content;
     border: none;
+    background: transparent;
+    border: none;
+    margin-left: 10px;
 }
 
-.btn > img{
+.btn-int > img{
     max-width: 25px;
 }
 
-.btn > img:hover{
+.btn-int > img:hover{
     opacity: .7;
 }
 
-.taskWrapper{
+.contactWrapper{
     display: block;
+    border: 1px solid transparent;
+    padding: 3px 7px;
+    border-radius: 10px;
+    transition: .3s;
+    /*cursor: pointer;*/
 }
+
+/*.contactWrapper:hover{*/
+/*    background: #ffffff8f;*/
+/*    border-color:white;*/
+/*}*/
 
 .hide{
     display: none !important;
@@ -84,5 +98,65 @@ body{
     color: silver;
     text-align: center;
     opacity: .5;
-    opacity: .5;
 }
+
+.modal-custom{
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+}
+/**/
+.modal.show{
+    display: flex !important;
+}
+
+.modal-dialog-custom{
+    width: 390px;
+}
+
+.modal-content-custom{
+    /*max-width: 320px;*/
+    height: 610px;
+    width: 100%;
+    border: 3px solid #c5c0c0;
+}
+
+.bg-black{
+    background: black;
+}
+
+.modal-header-custom{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-body-custom{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label_info{
+    font-size: 24px;
+}
+
+.label_info > span{
+    font-size: 21px;
+    font-weight: 100;
+}
+
+.noScroll{
+    overflow: hidden;
+}
+
+.photoContact_info > img,
+.callContact_info > img{
+    width: 70px;
+    border-radius: 50%;
+}
+
+.btn-edit{
+    max-width: 20px !important;
+}
+

@@ -4,29 +4,33 @@ export class View{
         this.form = null;
         this.todoContainer = null;
     }
-    creatTodoItem(data){
+
+    creatContactItem(data){
         const wrapperElement = document.createElement('div');
         wrapperElement.classList.add('col-12');
         wrapperElement.setAttribute('data-todo-id', data.id);
 
-        wrapperElement.innerHTML = `<div class="taskWrapper mb-2 mt-2 d-flex">
-                <div class="col-8 ">
-                    <div class="taskHeading search">${data.name}</div>
-                    <div class="taskNumber">${data.phone}</div>
-                    <div class="taskJob">${data.job}</div>   
-       
-                </div>
-                <div class="col-4 d-flex justify-content-end">
-                     <button class="btn p-0 m-0"><img  class = "btn-delete" src="../../images/btn-delete.png"></button>
-                </div>
-            </div>`;
+        wrapperElement.innerHTML = `
+            <div class="contactWrapper mb-2 mt-2 d-flex btn-primary">
+            <div class="col-8">
+                <div class="photoContact d-none">${data.ava}</div>
+                <div class="contactHeading search">${data.name}</div>
+                <div class="contactNumber">${data.phone}</div>
+                <div class="contactJob">${data.job}</div>   
+            </div>
+            <div class="col-4 d-flex justify-content-end">
+                 <button class="btn-int p-0" data-bs-toggle="modal" data-bs-target="#exampleModal-2"><img  class = "btn-edit" src="../../images/btn-edit.png"></button>
+                 <button class="btn-int p-0" data-bs-toggle="modal" data-bs-target="#exampleModal-1"><img  class = "btn-info" src="../../images/btn-info.png"></button>
+                 <button class="btn-int p-0"><img  class = "btn-delete" src="../../images/btn-delete.png"></button>
+            </div>
+        </div>
+        `;
 
         return wrapperElement;
     }
 
-
-    renderTodoItem(data){
-        const itemTemplate = this.creatTodoItem(data);
+    renderContactItem(data){
+        const itemTemplate = this.creatContactItem(data);
         this.todoContainer.append(itemTemplate);
     }
 
@@ -46,7 +50,6 @@ export class View{
             const innerContact = item.querySelector('.search');
             const itemText = innerContact.textContent;
             const isContainsSearchRequest = searchRegExp.test(itemText);
-            // console.log(innerContact);
 
             if (!isContainsSearchRequest) {
                 item.classList.add('hide');
@@ -56,15 +59,16 @@ export class View{
         })
     }
 
-
     clearForm(){
         this.form.reset();
     }
 
-    init(formElements, todoContainer){
+    init(formElements, bookContainer){
         this.form = formElements;
-        this.todoContainer = todoContainer;
+        this.todoContainer = bookContainer;
+
     }
+
 
 
 }
